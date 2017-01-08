@@ -49,7 +49,57 @@ CLIs come in many different flavors just like operating systems. Some people hav
 
 ## Getting help!
 
-## Variables in Bash
+The best way to find help in this class is using the #w205 Slack channel in the UCB iSchool Slack (reference link here), your professor, and stackoverflow. You should always try to solve the problem yourself first using resources avaliable to you, but asking questions is how we learn!
+
+## Getting to a shell (Need a better option)
+
+If you're running Linux or MacOS you have a bash terminal readily avaliable.
+
+Linux [http://www.howtogeek.com/howto/22283/four-ways-to-get-instant-access-to-a-terminal-in-linux/](http://www.howtogeek.com/howto/22283/four-ways-to-get-instant-access-to-a-terminal-in-linux/)
+
+MacOS [http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+
+If you're running Windows you might have a few issues since it doesn't have an included bash shell. If you know how to get to a bash shell, use an environment you're familiar with; however, if you don't there is an emulated shell avaliable at [http://www.tutorialspoint.com/execute_bash_online.php](http://www.tutorialspoint.com/execute_bash_online.php). It won't work for all commands, but it's a good first step. The shell is avaliable at the bottom of the page (the green area). We'll talk about how to access remote computers later in this lab and you'll actually connect to one for lab 2.
+
+## Basic commands and questions
+
+### First pass
+
+Try asking yourself some basic questions and running these in the shell. Sometimes you'll be surprised at just how simple a lot of this is.
+
+#### Where am I? (Present working directory)
+
+`pwd`
+
+#### What's in here? (List contents of present working directory)
+
+`ls`
+
+#### Can I move around?
+
+`cd /where/I/want/to/be`
+
+Let's also note that `.` is here and `..` is one level down.
+
+#### Who am I?
+
+`whoami`
+
+#### What is this thing? (Can pass variables and strings to get values)
+
+`echo bob`
+
+#### How does this program work? (What's the manual say?)
+
+`man echo`
+
+### Command flags
+
+### Variables in bash
+
+### What can I run?
+
+## Editing files
 
 ## File handling
 
