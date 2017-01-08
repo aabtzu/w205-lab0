@@ -91,21 +91,88 @@ Let's also note that `.` is here and `..` is one level down.
 
 #### How does this program work? (What's the manual say?)
 
-`man echo`
+`man ls`
+
+You can press q to quit out of the manual
 
 ### Command flags
 
+Were you wondering if you could do thing's a little bit differently? What if I want to have a list. Well turns out someone did that for us most of the time for simple things. We do this by passing flags to the command using `-`. You can see a list of these flags in the man page for the program.
+
+#### Extending ls
+
+- Can I get a list instead of a table? `ls -l` 
+- Can I list all files including hidden files? (files prepended with a . like .bashrc) `ls -a`
+- Can I do both? `ls -la`
+
 ### Variables in bash
+
+What if you have something you want to use a lot but don't want to type it 100 times. Why not just store it somewhere? Bash has variables and you can create them using the `=` symbol and read them out using `echo`. Varialbes are called through the `$` symbol and are conventially all capitalized.
+
+Try running these commands:
+- `BOB=bob`
+- `echo $BOB`
+
 
 ### What can I run?
 
+I really wish I knew how bash knew what I was able to run. I wonder how it knows where to look? I guess it has to look down a path to find it. Let's see if there is a PATH variable.
+
+`echo $PATH$`
+
+This is the list of directories that your shell know's where to look for applications.
+
 ## Editing files
+
+There are a few applications for editing files.
+
+- nano
+- vim
+- emacs
+
+As far as learning curve nano is the simplest with a basic interface and a few commands for saving and moving throguh the file. If you're not familiar with vim or emacs I'd recommend nano.
+
+`nano bob.txt`
+
+Notice at the bottom there is several command shortcuts listed. The `^` indicates ctrl, so ctrl+x is exit. If changes have been made it will ask if you want to save.
+
+Type `Merry had a little lamb. Jimmy did not.` then save and close.
+
+Now running `ls` you should see `bob.txt` in your directory. Run `nano bob.txt` again and you should see what you initially wrote in.
+
+Close out and now we'll work on how to do things with the file.
 
 ## File handling
 
-## File parsing
+#### What if we want to output the file instead of edit it?
+
+`cat file` or `cat bob.txt`
+
+#### I want to move the file?
+
+`mv bob.txt joe.txt`
+`ls`
+
+#### Copy the file?
+
+`cp joe.txt bob.txt`
+`ls`
+
+#### Remove the file?
+
+`rm joe.txt`
+`ls`
+
+## Parsing data
+
+bash has some great tools for parsing data that are extremely versitile and can't be taught 100% in this lab. A great example of how to use some of these tools is avaliable here: [Command-line tools can be 235x faster than your Hadoop cluster](https://web.archive.org/web/20161227191842/http://aadrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html). This acticle is a great example of right tool for the right job. Not all problems can be attacked this way and thus we use technologies such as Hadoop and Spark.
+
+
 
 ## Chaining commands
+
+
+## File parsing
 
 ## Redirection
 
