@@ -138,9 +138,9 @@ Notice at the bottom there is several command shortcuts listed. The `^` indicate
 
 Type `Merry had a little lamb. Jimmy did not.` then save and close.
 
-Now running `ls` you should see `bob.txt` in your directory. Run `nano bob.txt` again and you should see what you initially wrote in.
+Now running `ls` you should see `bob.txt` in your directory. Run `nano bob.txt` again and you should see what you initially wrote in. 
 
-Close out and now we'll work on how to do things with the file.
+Let's add a line to `bob.txt`. Add a new line with `Joe was sad. Moe was hungry.` and save. Close out and now we'll work on how to do things with the file.
 
 ## File handling
 
@@ -163,16 +163,64 @@ Close out and now we'll work on how to do things with the file.
 `rm joe.txt`
 `ls`
 
+#### How many words in a file?
+
+`wc -w bob.txt`
+
+#### How many lines in a file?
+
+`wc -l bob.txt`
+
+#### Top lines in a file?
+
+`head -1 bob.txt`
+`head -2 bob.txt`
+
+#### Bottom lines in a file?
+`tail -1 bob.txt`
+`tail -2 bob.txt`
+
 ## Parsing data
 
-bash has some great tools for parsing data that are extremely versitile and can't be taught 100% in this lab. A great example of how to use some of these tools is avaliable here: [Command-line tools can be 235x faster than your Hadoop cluster](https://web.archive.org/web/20161227191842/http://aadrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html). This acticle is a great example of right tool for the right job. Not all problems can be attacked this way and thus we use technologies such as Hadoop and Spark.
+Linux has some great tools for parsing data that are extremely versitile and can't be taught 100% in this lab. A great example of how to use some of these tools is avaliable here: [Command-line tools can be 235x faster than your Hadoop cluster](https://web.archive.org/web/20161227191842/http://aadrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html). This acticle is a great example of right tool for the right job. Not all problems can be attacked this way and thus we use technologies such as Hadoop and Spark.
 
+`awk` is one of the most verstile tools with lots of references avaliable online. I'm just going to do a basic example and provide some reference for examples below. 
 
+Let's just say I want to split the lines of my file on the sentences and print the first sentence of each line. I would need to specify a field seperator using the `-F` flag and print out the first element while also specifying which file. 
+
+`awk -F. '{print $1}' bob.txt`
+
+Merry had a little lamb
+
+Joe was sad
+
+`awk -F. '{print $2}' bob.txt`
+
+ Jimmy did not
+ 
+ Moe was hungry
+
+#### Referenes
+
+[https://www.tutorialspoint.com/awk/awk_basic_examples.htm](https://www.tutorialspoint.com/awk/awk_basic_examples.htm)
+[https://www.ibm.com/developerworks/library/l-awk1/](https://www.ibm.com/developerworks/library/l-awk1/)
+[http://www.folkstalk.com/2011/12/good-examples-of-awk-command-in-unix.html](http://www.folkstalk.com/2011/12/good-examples-of-awk-command-in-unix.html)
 
 ## Chaining commands
 
+What happens if I want to use some of these tools together and parse the output of another output? Bash handles these using pipes `|` which tells it to take the stdout and "pipe" it to stdin of the next command. Let's look at a few examples. Let's figure out the number of files in my folder which have the .txt extention. I can use the wildcard `*` to specify all things that match a given string using `*.txt`. Use `ls *.txt` to determine what the count should be by eye. Let's put what we've learned together to figure this out.
 
-## File parsing
+Steps:
+1. List all files that have the txt extention
+2. Count the number of lines using wc
+
+`ls *.txt | wc -l`
+
+Let's assume we were less industrious and didn't realize wordcount would work in this instance and I used the awk hammer.
+
+`ls *.txt | awk 'BEGIN{i=0}{i++;}END{print i}'`
+
+Add a few .txt files and try both of these commands again.
 
 ## Redirection
 
