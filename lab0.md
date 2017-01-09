@@ -151,16 +151,19 @@ Let's add a line to `bob.txt`. Add a new line with `Joe was sad. Moe was hungry.
 #### I want to move the file?
 
 `mv bob.txt joe.txt`
+
 `ls`
 
 #### Copy the file?
 
 `cp joe.txt bob.txt`
+
 `ls`
 
 #### Remove the file?
 
 `rm joe.txt`
+
 `ls`
 
 #### How many words in a file?
@@ -174,10 +177,12 @@ Let's add a line to `bob.txt`. Add a new line with `Joe was sad. Moe was hungry.
 #### Top lines in a file?
 
 `head -1 bob.txt`
+
 `head -2 bob.txt`
 
 #### Bottom lines in a file?
 `tail -1 bob.txt`
+
 `tail -2 bob.txt`
 
 ## Parsing data
